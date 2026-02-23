@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { sectionConfigs } from '../../data/sectionContent'
 import { SectionShell, childVariants } from './SectionShell'
+import { ContactStrip } from '../ContactStrip'
 import { HumidityEffect } from '../overlays/HumidityEffect'
 import { ThermalEffect } from '../overlays/ThermalEffect'
 import { ElectricalEffect } from '../overlays/ElectricalEffect'
@@ -55,10 +56,6 @@ export function ServiceSection({ sectionIndex }: ServiceSectionProps) {
   }) as string[]
 
   const trustNote = t(`${config.translationKey}.trustNote`, { defaultValue: '' })
-
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-  }
 
   return (
     <SectionShell side={config.side}>
@@ -116,14 +113,9 @@ export function ServiceSection({ sectionIndex }: ServiceSectionProps) {
         </motion.p>
       )}
 
-      {/* CTA button */}
-      <motion.div variants={childVariants} className="mt-3 sm:mt-6">
-        <button
-          onClick={scrollToContact}
-          className="pointer-events-auto cursor-pointer transition-colors bg-accent hover:bg-accent-hover text-background font-semibold px-4 py-2 sm:px-6 sm:py-3 rounded-full text-xs sm:text-base"
-        >
-          {t('cta.callback')}
-        </button>
+      {/* Contact strip */}
+      <motion.div variants={childVariants}>
+        <ContactStrip />
       </motion.div>
     </SectionShell>
   )

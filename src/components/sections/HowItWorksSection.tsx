@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { SectionShell, childVariants } from './SectionShell'
+import { ContactStrip } from '../ContactStrip'
 
 interface HowItWorksSectionProps {
   sectionIndex: number
@@ -13,10 +14,6 @@ interface HowItWorksSectionProps {
 export function HowItWorksSection({ sectionIndex: _sectionIndex }: HowItWorksSectionProps) {
   const { t } = useTranslation()
   const steps = t('sections.howItWorks.steps', { returnObjects: true }) as string[]
-
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-  }
 
   return (
     <SectionShell side="right">
@@ -43,14 +40,9 @@ export function HowItWorksSection({ sectionIndex: _sectionIndex }: HowItWorksSec
         ))}
       </motion.div>
 
-      {/* CTA button */}
-      <motion.div variants={childVariants} className="mt-3 sm:mt-6">
-        <button
-          onClick={scrollToContact}
-          className="pointer-events-auto cursor-pointer transition-colors bg-accent hover:bg-accent-hover text-background font-semibold px-4 py-2 sm:px-6 sm:py-3 rounded-full text-xs sm:text-base"
-        >
-          {t('sections.howItWorks.cta')}
-        </button>
+      {/* Contact strip */}
+      <motion.div variants={childVariants}>
+        <ContactStrip />
       </motion.div>
     </SectionShell>
   )

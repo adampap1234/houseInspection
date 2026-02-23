@@ -31,6 +31,13 @@
   "cta": {
     "callback": "Kérjen visszahívást"
   },
+  "contact": {
+    "label": "Érdekli? Lépjen velünk kapcsolatba!",
+    "phone": "+36 30 123 4567",
+    "emailAddress": "info@otthonellenor.hu",
+    "callLabel": "Hívjon minket",
+    "emailLabel": "Írjon nekünk"
+  },
   "scroll": {
     "explore": "Görgess le, és nézd meg, mit tudunk kimutatni roncsolás nélkül."
   },
