@@ -4,7 +4,7 @@ export function SceneLighting() {
   return (
     <>
       <Environment
-        files="/hdri/environment.hdr"
+        files={`${import.meta.env.BASE_URL}hdri/environment.hdr`}
         background={false}
         environmentIntensity={0.6}
       />
