@@ -38,10 +38,9 @@ export const childVariants: Variants = {
 }
 
 /**
- * Reusable glassmorphism panel wrapper with entry/exit animations
- * and staggered child reveals.
+ * Reusable panel wrapper with entry/exit animations and staggered children.
  *
- * Mobile: bottom sheet covering lower ~45% of screen, 3D scene visible above.
+ * Mobile: gradient overlay anchored to bottom, content pushed to bottom.
  * Desktop: full-height side panel (left, right, or center).
  */
 export function SectionShell({ children, side = 'right', className = '' }: SectionShellProps) {
@@ -65,17 +64,16 @@ export function SectionShell({ children, side = 'right', className = '' }: Secti
       animate="animate"
       exit="exit"
       className={`
+        section-shell-mobile
         fixed pointer-events-auto overflow-y-auto
-        bg-background/60 backdrop-blur-lg
-        sm:bg-background/80 sm:backdrop-blur-xl
 
-        /* Mobile: bottom sheet */
+        /* Mobile: gradient overlay from bottom */
         bottom-0 left-0 right-0
-        h-[45vh] rounded-t-2xl
-        border-t border-white/10
-        p-4 pb-6
+        h-[55vh]
+        px-5 pb-6 pt-12
 
-        /* Desktop: full-height side panel */
+        /* Desktop: solid panel */
+        sm:bg-background/80 sm:backdrop-blur-xl
         sm:top-0 sm:bottom-0 sm:h-full
         sm:rounded-none sm:border-t-0
         sm:p-8 md:p-12
@@ -83,12 +81,10 @@ export function SectionShell({ children, side = 'right', className = '' }: Secti
         ${desktopWidthClasses}
         ${desktopSideClasses}
 
-        flex flex-col justify-start
+        flex flex-col justify-end sm:justify-start
         ${className}
       `}
     >
-      {/* Mobile drag handle indicator */}
-      <div className="sm:hidden w-10 h-1 rounded-full bg-white/20 self-center mb-3 flex-shrink-0" />
       {children}
     </motion.div>
   )
