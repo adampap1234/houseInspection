@@ -16,7 +16,9 @@ import { useScrollStore } from '../stores/useScrollStore'
 export function StickyCta() {
   const { t } = useTranslation()
   const progress = useScrollStore((s) => s.progress)
-  const visible = progress > 0.15
+  const isAtStop = useScrollStore((s) => s.isAtStop)
+  // Show only between sections — hide when a panel is open (panels have their own CTA)
+  const visible = progress > 0.15 && !isAtStop
 
   const handleClick = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
