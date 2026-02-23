@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { SectionShell, childVariants } from './SectionShell'
+import { ContactStrip } from '../ContactStrip'
 
 interface HeroSectionProps {
   sectionIndex: number
@@ -15,10 +16,6 @@ interface HeroSectionProps {
 export function HeroSection({ sectionIndex: _sectionIndex }: HeroSectionProps) {
   const { t } = useTranslation()
   const promises = t('sections.hero.promises', { returnObjects: true }) as string[]
-
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-  }
 
   return (
     <SectionShell side="center">
@@ -70,26 +67,15 @@ export function HeroSection({ sectionIndex: _sectionIndex }: HeroSectionProps) {
         {t('sections.hero.trustText')}
       </motion.p>
 
-      {/* Two CTA buttons */}
-      <motion.div variants={childVariants} className="flex flex-wrap gap-2 sm:gap-3 mt-3 sm:mt-6">
-        <button
-          onClick={scrollToContact}
-          className="pointer-events-auto cursor-pointer transition-colors bg-accent hover:bg-accent-hover text-background font-semibold px-4 py-2 sm:px-6 sm:py-3 rounded-full text-xs sm:text-base"
-        >
-          {t('sections.hero.ctaPrimary')}
-        </button>
-        <button
-          onClick={scrollToContact}
-          className="pointer-events-auto cursor-pointer transition-colors border border-accent text-accent hover:bg-accent/10 font-semibold px-4 py-2 sm:px-6 sm:py-3 rounded-full text-xs sm:text-base"
-        >
-          {t('sections.hero.ctaSecondary')}
-        </button>
+      {/* Contact info */}
+      <motion.div variants={childVariants}>
+        <ContactStrip />
       </motion.div>
 
       {/* Scroll prompt — hidden on mobile to save space */}
       <motion.p
         variants={childVariants}
-        className="hidden sm:block text-text-secondary/60 text-sm mt-8"
+        className="hidden sm:block text-text-secondary/60 text-sm mt-4"
       >
         {t('sections.hero.scrollPrompt')}
       </motion.p>
