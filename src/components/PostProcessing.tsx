@@ -1,3 +1,4 @@
+// @ts-nocheck - EffectComposer children types incompatible with React 19
 import { useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import {

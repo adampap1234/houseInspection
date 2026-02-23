@@ -127,7 +127,7 @@ export function CameraDebugHud() {
 
       <div style={{ color: '#ff0', marginTop: 8, marginBottom: 4, fontSize: 11 }}>SPLINE PATH:</div>
       {[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0].map((t) => {
-        const p = cameraSpline.getPointAt(Math.min(t, 0.9999))
+        const _p = cameraSpline.getPointAt(Math.min(t, 0.9999))
         return (
           <button
             key={t}
