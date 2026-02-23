@@ -1,0 +1,122 @@
+{
+  "app": {
+    "title": "Home Inspector",
+    "subtitle": "Professional Home Inspection",
+    "description": "Discover our services to ensure the safety and value of your home."
+  },
+  "nav": {
+    "language": "Language"
+  },
+  "common": {
+    "loading": "Loading..."
+  },
+  "services": {
+    "humidity": {
+      "title": "Wall Humidity Check",
+      "description": "We identify hidden moisture damage before it becomes costly. Our professional humidity meter detects trapped moisture inside walls that's invisible to the naked eye."
+    },
+    "electrical": {
+      "title": "Electrical Inspection",
+      "description": "We verify the safety of your wiring and outlets. Our diagnostic tools reveal hidden faults, overloaded circuits, and outdated connections that pose fire risks."
+    },
+    "laser": {
+      "title": "Laser Measurement",
+      "description": "We deliver precise room dimensions with laser accuracy. Every measurement is documented to the millimeter — essential for renovations and furniture planning."
+    },
+    "thermal": {
+      "title": "Thermal Imaging",
+      "description": "We reveal hidden heat loss through your windows and walls. Our thermal camera shows exactly where insulation is failing and cold air is getting in."
+    }
+  },
+  "cta": {
+    "callback": "Request callback"
+  },
+  "scroll": {
+    "explore": "Scroll down to see what we can detect without any damage."
+  },
+  "sections": {
+    "common": {
+      "reportIncludesLabel": "The report includes:"
+    },
+    "hero": {
+      "h1": "Know what you're buying – before it costs you millions.",
+      "subtitle": "Non-destructive home and apartment condition assessment with professional instruments: thermal camera, wall moisture measurement, basic electrical check, precise laser survey. You'll receive a clear, illustrated report – with risks, priorities, and recommended next steps.",
+      "promises": [
+        "Tracking hidden defects – leaks, mold risk, thermal bridges, heat loss.",
+        "Not guessing, measuring – documented results, photos + thermal images.",
+        "Decision-support report – what's urgent, what can wait, what's risky."
+      ],
+      "trustText": "Whether you're buying, selling, renovating, or in a dispute with a contractor – you won't get answers based on \"gut feeling\" here, but a measurement-backed picture of the property's condition.",
+      "ctaPrimary": "Book an assessment",
+      "ctaSecondary": "Get pricing and process info",
+      "scrollPrompt": "Scroll down to see what we can detect without any damage."
+    },
+    "howItWorks": {
+      "title": "4 steps to a clear picture",
+      "steps": [
+        "Brief consultation (5 min) – what's the goal: buying / selling / renovation / defect investigation",
+        "On-site measurement – multiple points, fully documented",
+        "Analysis + report – with images, measured values, and conclusions",
+        "Action list – what's urgent, what's \"nice to have\", what's the risk"
+      ],
+      "cta": "Request a callback"
+    },
+    "humidity": {
+      "title": "Wall moisture and mold risk – before it becomes visible",
+      "useCases": [
+        "narrowing down suspected leaks or moisture intrusion",
+        "mapping moisture hotspots",
+        "identifying mold-prone zones",
+        "pre-renovation \"don't wall over the problem\" check"
+      ],
+      "reportIncludes": [
+        "measurement points and values (per room)",
+        "\"risk map\" style summary (where it's critical)",
+        "recommended next steps (e.g., ventilation, drying, source investigation)"
+      ],
+      "trustNote": "Because moisture is one of the most expensive surprises."
+    },
+    "electrical": {
+      "title": "Basic electrical check – so the fuse box doesn't blow your budget",
+      "checks": [
+        "distribution board visual inspection, basic condition",
+        "typical signs of electrical safety risks",
+        "signs of overloading (e.g., overheating marks, suspected wiring issues)",
+        "condition of outlets and switches (common faults)"
+      ],
+      "reportIncludes": [
+        "\"OK / watch / urgent\" classification",
+        "recommendation on when to bring in an electrician for deeper inspection"
+      ],
+      "trustNote": "This is a basic assessment, not a full standards-compliant electrical audit."
+    },
+    "laser": {
+      "title": "Precise laser survey – a floor plan you can design and price from",
+      "useCases": [
+        "renovation planning (flooring, painting, kitchen, furniture)",
+        "contractor quotes (no more guesswork)",
+        "property listings / documentation",
+        "disputed \"how big is it really?\" situations"
+      ],
+      "reportIncludes": [
+        "room-by-room dimensions",
+        "clean, easy-to-read floor plan (digital)"
+      ]
+    },
+    "thermal": {
+      "title": "Thermal camera inspection – when the walls reveal where the heat escapes",
+      "detects": [
+        "thermal bridges (cold corners, floor slab junctions, ring beams)",
+        "heat leakage around windows and doors",
+        "suspected insulation deficiencies",
+        "cold surfaces that increase comfort and mold risk"
+      ],
+      "reportIncludes": [
+        "thermal + normal photo pairs",
+        "annotations and brief explanations: \"what this means for you\"",
+        "recommendation: sealing / thermal bridge treatment / ventilation / insulation direction"
+      ],
+      "trustNote": "Thermal cameras are most accurate when there's a sufficient temperature difference between inside and outside – we coordinate this in advance."
+    }
+  }
+}

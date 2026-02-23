@@ -1,0 +1,122 @@
+{
+  "app": {
+    "title": "Otthon Ellenőr",
+    "subtitle": "Professzionális lakásvizsgálat",
+    "description": "Fedezze fel szolgáltatásainkat a lakása biztonságáért és értékének megőrzéséért."
+  },
+  "nav": {
+    "language": "Nyelv"
+  },
+  "common": {
+    "loading": "Betöltés..."
+  },
+  "services": {
+    "humidity": {
+      "title": "Fal Nedvesség Vizsgálat",
+      "description": "Feltárjuk a rejtett nedvességkárt, mielőtt költségessé válna. Professzionális nedvességmérőnk a szabad szemmel láthatatlan, falba zárt nedvességet is kimutatja."
+    },
+    "electrical": {
+      "title": "Elektromos Vizsgálat",
+      "description": "Ellenőrizzük a vezetékek és konnektorok biztonságát. Diagnosztikai eszközeink feltárják a rejtett hibákat, túlterhelt áramköröket és elavult csatlakozásokat."
+    },
+    "laser": {
+      "title": "Lézeres Felmérés",
+      "description": "Milliméteres pontossággal mérjük fel a helyiségeket. Minden méret dokumentálva — nélkülözhetetlen felújításhoz és bútortervezéshez."
+    },
+    "thermal": {
+      "title": "Hőkamerás Vizsgálat",
+      "description": "Feltárjuk az ablakokon és falakon keresztüli rejtett hőveszteséget. Hőkameránk pontosan megmutatja, hol hibás a szigetelés és hol jut be a hideg levegő."
+    }
+  },
+  "cta": {
+    "callback": "Kérjen visszahívást"
+  },
+  "scroll": {
+    "explore": "Görgess le, és nézd meg, mit tudunk kimutatni roncsolás nélkül."
+  },
+  "sections": {
+    "common": {
+      "reportIncludesLabel": "A riport tartalmazza:"
+    },
+    "hero": {
+      "h1": "Tudd meg, mit veszel – mielőtt milliókba kerül.",
+      "subtitle": "Roncsolásmentes lakás- és házállapotfelmérés profi műszerekkel: hőkamera, falnedvesség-mérés, alap villamos ellenőrzés, pontos lézeres felmérés. A végén kézhez kapsz egy érthető, képekkel illusztrált reportot – kockázatokkal, prioritásokkal és javasolt lépésekkel.",
+      "promises": [
+        "Rejtett hibák nyomában – beázás, penészkockázat, hőhíd, hőveszteség.",
+        "Nem találgatás, mérés – dokumentált eredmények, fotó + hőkép.",
+        "Döntéstámogató riport – mi sürgős, mi ráér, mi mennyire kockázatos."
+      ],
+      "trustText": "Ha ingatlant veszel, eladsz, felújítasz vagy vitád van kivitelezővel – itt nem \"érzésre\" kapsz választ, hanem mérésekkel alátámasztott képet az állapotról.",
+      "ctaPrimary": "Időpontot kérek felmérésre",
+      "ctaSecondary": "Árat és folyamatot kérek",
+      "scrollPrompt": "Görgess le, és nézd meg, mit tudunk kimutatni roncsolás nélkül."
+    },
+    "howItWorks": {
+      "title": "4 lépés, és tisztán látsz",
+      "steps": [
+        "Rövid egyeztetés (5 perc) – mi a cél: vétel / eladás / felújítás / hiba feltárás",
+        "Helyszíni mérés – több ponton, dokumentálva",
+        "Elemzés + riport – képekkel, mért értékekkel, következtetésekkel",
+        "Teendők listája – mi a sürgős, mi a \"szép lenne\", mi a kockázat"
+      ],
+      "cta": "Kérek visszahívást"
+    },
+    "humidity": {
+      "title": "Falnedvesség és penészkockázat – még azelőtt, hogy látható lenne",
+      "useCases": [
+        "beázás/átnedvesedés gyanújának szűkítése",
+        "vizesedési gócok feltérképezése",
+        "penészedésre hajlamos zónák kijelölése",
+        "felújítás előtt \"ne falazz rá a bajra\" ellenőrzés"
+      ],
+      "reportIncludes": [
+        "mérési pontok és értékek (helyiségenként)",
+        "\"kockázati térkép\" jellegű összegzés (hol kritikus)",
+        "javasolt következő lépések (pl. szellőzés, szárítás, forrásvizsgálat)"
+      ],
+      "trustNote": "Mert a nedvesség a legdrágább meglepetések egyike."
+    },
+    "electrical": {
+      "title": "Alap villamos ellenőrzés – hogy ne a biztosíték verje ki a költségvetést",
+      "checks": [
+        "elosztó/szekrény szemrevételezés, alap állapot",
+        "érintésvédelmi kockázatok tipikus jelei",
+        "terhelhetőségre utaló jelek (pl. túlmelegedés nyomai, kötésproblémák gyanúja)",
+        "konnektorok/kapcsolók állapota (jellemző hibák)"
+      ],
+      "reportIncludes": [
+        "\"rendben / figyelendő / sürgős\" besorolás",
+        "javaslat, mikor érdemes villanyszerelőt bevonni mélyebb mérésre"
+      ],
+      "trustNote": "Ez \"alap felmérés\", nem teljes szabványos felülvizsgálat."
+    },
+    "laser": {
+      "title": "Pontos lézeres felmérés – alaprajz, amire lehet tervezni és árazni",
+      "useCases": [
+        "felújítás tervezéshez (burkolat, festés, konyha, bútor)",
+        "kivitelezői ajánlatkéréshez (ne \"hasraütés\" legyen)",
+        "ingatlanhirdetéshez / dokumentációhoz",
+        "vitás \"mekkora is valójában?\" helyzetekhez"
+      ],
+      "reportIncludes": [
+        "helyiségenkénti méretek",
+        "egyszerű, áttekinthető alaprajz (digitálisan)"
+      ]
+    },
+    "thermal": {
+      "title": "Hőkamerás vizsgálat – amikor a fal \"elárulja\", hol megy el a meleg",
+      "detects": [
+        "hőhidak (hideg sarkok, födémcsatlakozás, koszorú)",
+        "nyílászáró körüli hőszivárgás",
+        "szigetelési hiányosságok gyanúja",
+        "komfort- és penészkockázatot növelő hideg felületek"
+      ],
+      "reportIncludes": [
+        "hőkép + normál fotó párok",
+        "jelölések és rövid magyarázat: \"mit jelent ez neked\"",
+        "javaslat: tömítés / hőhídkezelés / szellőzés / szigetelés irány"
+      ],
+      "trustNote": "A hőkamera akkor a legpontosabb, ha van megfelelő hőmérséklet-különbség kint és bent – ezt előre egyeztetjük."
+    }
+  }
+}

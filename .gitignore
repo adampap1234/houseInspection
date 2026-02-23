@@ -1,0 +1,33 @@
+.planning/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# 3D model assets — originals too large for git
+assets/
+public/models/scene.bin
+public/models/scene.gltf
+public/models/house.glb
+# Keep house-optimized.glb (22MB) — needed for the deployed site
