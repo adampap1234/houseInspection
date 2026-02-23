@@ -4,12 +4,8 @@ import { useScrollStore } from '../stores/useScrollStore'
 import { sectionScrollTargets, SECTION_COUNT } from '../data/cameraPath'
 
 /**
- * Clickable scroll-down indicator shown at every inspection stop.
- * Clicking it smoothly scrolls to the next section.
- *
- * Mobile: positioned just above the section panel.
- * Desktop: positioned at the bottom center.
- * Hidden during fly-throughs and on the last section.
+ * Classic mouse-scroll icon with animated wheel dot.
+ * Universally recognized, clean, clickable.
  */
 export function ScrollCue() {
   const isAtStop = useScrollStore((s) => s.isAtStop)
@@ -19,12 +15,8 @@ export function ScrollCue() {
   const scrollToNext = useCallback(() => {
     const nextIndex = activeStopIndex + 1
     if (nextIndex >= SECTION_COUNT) return
-
     const maxScroll = document.documentElement.scrollHeight - window.innerHeight
     const targetY = sectionScrollTargets[nextIndex]! * maxScroll
-
-    // Dispatch a synthetic wheel event so the snap-scroll listener handles it
-    // OR just scroll directly — the scroll listener will pick it up
     window.scrollTo({ top: targetY, behavior: 'smooth' })
   }, [activeStopIndex])
 
@@ -33,39 +25,29 @@ export function ScrollCue() {
       {visible && (
         <motion.button
           key="scroll-cue"
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.3 }}
+          exit={{ opacity: 0, y: 8 }}
+          transition={{ duration: 0.4 }}
           onClick={scrollToNext}
           className="
             fixed left-1/2 -translate-x-1/2 z-30
-            bottom-[56vh] sm:bottom-8
+            bottom-[57vh] sm:bottom-8
             pointer-events-auto cursor-pointer
-            flex items-center justify-center
-            w-12 h-12 rounded-full
-            bg-accent/20 hover:bg-accent/30
-            border border-accent/30
-            backdrop-blur-sm
-            transition-colors
+            flex flex-col items-center
+            group
           "
           aria-label="Scroll to next section"
         >
-          <motion.svg
-            animate={{ y: [0, 4, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-            width="22"
-            height="22"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-accent"
-          >
-            <polyline points="6 9 12 15 18 9" />
-          </motion.svg>
+          {/* Mouse outline */}
+          <div className="relative w-6 h-10 rounded-full border-2 border-text-secondary/40 group-hover:border-accent/60 transition-colors">
+            {/* Animated scroll wheel dot */}
+            <motion.div
+              animate={{ y: [0, 10, 0], opacity: [1, 0, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              className="absolute left-1/2 -translate-x-1/2 top-2 w-1 h-2.5 rounded-full bg-accent"
+            />
+          </div>
         </motion.button>
       )}
     </AnimatePresence>
