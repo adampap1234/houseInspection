@@ -3,9 +3,16 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useScrollStore } from '../stores/useScrollStore'
 import { sectionScrollTargets, SECTION_COUNT } from '../data/cameraPath'
 
+const chevron = (
+  <svg width="24" height="12" viewBox="0 0 24 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="4 2 12 10 20 2" />
+  </svg>
+)
+
 /**
- * Classic mouse-scroll icon with animated wheel dot.
- * Universally recognized, clean, clickable.
+ * Cascading triple-chevron scroll indicator.
+ * Three arrows stagger-animate downward in a wave, clearly
+ * communicating "scroll down". Clickable — advances to next section.
  */
 export function ScrollCue() {
   const isAtStop = useScrollStore((s) => s.isAtStop)
@@ -25,29 +32,35 @@ export function ScrollCue() {
       {visible && (
         <motion.button
           key="scroll-cue"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 8 }}
-          transition={{ duration: 0.4 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
           onClick={scrollToNext}
           className="
             fixed left-1/2 -translate-x-1/2 z-30
             bottom-[57vh] sm:bottom-8
             pointer-events-auto cursor-pointer
-            flex flex-col items-center
+            flex flex-col items-center -space-y-1
             group
           "
           aria-label="Scroll to next section"
         >
-          {/* Mouse outline */}
-          <div className="relative w-6 h-10 rounded-full border-2 border-text-secondary/40 group-hover:border-accent/60 transition-colors">
-            {/* Animated scroll wheel dot */}
-            <motion.div
-              animate={{ y: [0, 10, 0], opacity: [1, 0, 1] }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute left-1/2 -translate-x-1/2 top-2 w-1 h-2.5 rounded-full bg-accent"
-            />
-          </div>
+          {[0, 1, 2].map((i) => (
+            <motion.span
+              key={i}
+              animate={{ opacity: [0.15, 0.9, 0.15], y: [0, 3, 0] }}
+              transition={{
+                duration: 1.8,
+                repeat: Infinity,
+                delay: i * 0.25,
+                ease: 'easeInOut',
+              }}
+              className="text-accent group-hover:text-accent-hover transition-colors"
+            >
+              {chevron}
+            </motion.span>
+          ))}
         </motion.button>
       )}
     </AnimatePresence>
