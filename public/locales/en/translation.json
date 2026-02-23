@@ -38,6 +38,22 @@
     "callLabel": "Call us",
     "emailLabel": "Email us"
   },
+  "pricing": {
+    "button": "Pricing",
+    "title": "Complete instrument-based condition assessment",
+    "price": "50,000 HUF",
+    "tagline": "One fixed price that gives you decision confidence.",
+    "includesLabel": "The package includes:",
+    "includes": [
+      "Instrument-based assessment (thermal camera, wall moisture, basic electrical check)",
+      "30-point structured inspection checklist",
+      "Photo documentation (normal + thermal images)",
+      "Detailed, easy-to-understand report",
+      "Repair recommendations with priorities",
+      "Approximate cost estimates"
+    ],
+    "close": "Close"
+  },
   "scroll": {
     "explore": "Scroll down to see what we can detect without any damage."
   },

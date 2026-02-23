@@ -38,6 +38,22 @@
     "callLabel": "Hívjon minket",
     "emailLabel": "Írjon nekünk"
   },
+  "pricing": {
+    "button": "Árak",
+    "title": "Teljes k\u00f6r\u0171 m\u0171szeres \u00e1llapotfelm\u00e9r\u00e9s",
+    "price": "50.000 Ft",
+    "tagline": "Egy fix \u00e1r, ami d\u00f6nt\u00e9si biztons\u00e1got ad.",
+    "includesLabel": "A csomag tartalma:",
+    "includes": [
+      "M\u0171szeres \u00e1llapotfelm\u00e9r\u00e9s (h\u0151kamera, falnedvess\u00e9g, alap villamos ellen\u0151rz\u00e9s)",
+      "30 pontos struktur\u00e1lt ellen\u0151rz\u00e9si lista",
+      "Fot\u00f3dokument\u00e1ci\u00f3 (norm\u00e1l + h\u0151k\u00e9pek)",
+      "R\u00e9szletes, \u00e9rthet\u0151 riport",
+      "Jav\u00edt\u00e1si javaslatok priorit\u00e1ssal",
+      "Nagys\u00e1grendi k\u00f6lts\u00e9gbecsl\u00e9s"
+    ],
+    "close": "Bez\u00e1r\u00e1s"
+  },
   "scroll": {
     "explore": "Görgess le, és nézd meg, mit tudunk kimutatni roncsolás nélkül."
   },
