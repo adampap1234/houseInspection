@@ -1,5 +1,6 @@
 import { FormStepWrapper } from './FormStepWrapper.tsx'
 import { ChecklistField } from './ChecklistField.tsx'
+import { PhotoGallery } from '../photo/PhotoGallery.tsx'
 import { hvacSchema, type HvacForm } from '../../schemas/hvac.ts'
 import type { HvacData } from '../../types/inspection.ts'
 
@@ -38,6 +39,12 @@ export function HvacStep({ inspectionId, defaultValues }: HvacStepProps) {
                 control={form.control}
               />
             ))}
+          </div>
+
+          {/* Photo gallery */}
+          <div className="space-y-2 border-t border-stone-700 pt-4">
+            <h3 className="text-sm font-medium text-stone-300">Fenykepek</h3>
+            <PhotoGallery inspectionId={inspectionId} stepKey="hvac" />
           </div>
         </div>
       )}

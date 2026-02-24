@@ -18,12 +18,14 @@ interface PhotoGalleryProps {
   inspectionId: string
   stepKey: string
   roomId?: string
+  defaultPhotoType?: 'visible' | 'thermal' | 'other'
 }
 
 export function PhotoGallery({
   inspectionId,
   stepKey,
   roomId,
+  defaultPhotoType,
 }: PhotoGalleryProps) {
   const [editingPhoto, setEditingPhoto] = useState<InspectionPhoto | null>(null)
 
@@ -70,6 +72,7 @@ export function PhotoGallery({
         inspectionId={inspectionId}
         stepKey={stepKey}
         roomId={roomId}
+        defaultPhotoType={defaultPhotoType}
       />
 
       {/* Photo gallery */}

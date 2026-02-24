@@ -1,6 +1,7 @@
 import { useFieldArray } from 'react-hook-form'
 import { v4 as uuidv4 } from 'uuid'
 import { FormStepWrapper } from './FormStepWrapper.tsx'
+import { PhotoGallery } from '../photo/PhotoGallery.tsx'
 import { laserSchema, type LaserForm } from '../../schemas/laser.ts'
 import type { LaserData } from '../../types/inspection.ts'
 
@@ -34,7 +35,7 @@ export function LaserMeasurementsStep({
       defaultValues={defaultValues}
     >
       {(form) => (
-        <LaserMeasurementsContent form={form} />
+        <LaserMeasurementsContent form={form} inspectionId={inspectionId} />
       )}
     </FormStepWrapper>
   )
@@ -42,8 +43,10 @@ export function LaserMeasurementsStep({
 
 function LaserMeasurementsContent({
   form,
+  inspectionId,
 }: {
   form: ReturnType<typeof import('react-hook-form').useForm<LaserForm>>
+  inspectionId: string
 }) {
   const { fields, append, remove } = useFieldArray({
     control: form.control,
@@ -247,6 +250,12 @@ function LaserMeasurementsContent({
           </button>
         </div>
       )}
+
+      {/* Photo gallery */}
+      <div className="space-y-2 border-t border-stone-700 pt-4">
+        <h3 className="text-sm font-medium text-stone-300">Fenykepek</h3>
+        <PhotoGallery inspectionId={inspectionId} stepKey="laser" />
+      </div>
     </div>
   )
 }

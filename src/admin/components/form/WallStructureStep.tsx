@@ -1,5 +1,6 @@
 import { FormStepWrapper } from './FormStepWrapper.tsx'
 import { ChecklistField } from './ChecklistField.tsx'
+import { PhotoGallery } from '../photo/PhotoGallery.tsx'
 import { wallStructureSchema, type WallStructureForm } from '../../schemas/wall-structure.ts'
 import type { WallStructureData } from '../../types/inspection.ts'
 
@@ -35,6 +36,12 @@ export function WallStructureStep({ inspectionId, defaultValues }: WallStructure
                 control={form.control}
               />
             ))}
+          </div>
+
+          {/* Photo gallery */}
+          <div className="space-y-2 border-t border-stone-700 pt-4">
+            <h3 className="text-sm font-medium text-stone-300">Fenykepek</h3>
+            <PhotoGallery inspectionId={inspectionId} stepKey="wallStructure" />
           </div>
         </div>
       )}

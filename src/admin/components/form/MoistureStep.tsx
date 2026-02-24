@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { FormStepWrapper } from './FormStepWrapper.tsx'
 import { RoomAccordion } from '../room/RoomAccordion.tsx'
 import { RoomForm } from '../room/RoomForm.tsx'
+import { PhotoGallery } from '../photo/PhotoGallery.tsx'
 import { moistureSchema, type MoistureForm } from '../../schemas/moisture.ts'
 import type { MoistureData } from '../../types/inspection.ts'
 
@@ -36,6 +37,7 @@ export function MoistureStep({ inspectionId, defaultValues }: MoistureStepProps)
       {(form) => (
         <MoistureStepInner
           form={form}
+          inspectionId={inspectionId}
           expandedId={expandedId}
           setExpandedId={setExpandedId}
         />
@@ -46,11 +48,12 @@ export function MoistureStep({ inspectionId, defaultValues }: MoistureStepProps)
 
 interface MoistureStepInnerProps {
   form: ReturnType<typeof import('react-hook-form').useForm<MoistureForm>>
+  inspectionId: string
   expandedId: string | null
   setExpandedId: (id: string | null) => void
 }
 
-function MoistureStepInner({ form, expandedId, setExpandedId }: MoistureStepInnerProps) {
+function MoistureStepInner({ form, inspectionId, expandedId, setExpandedId }: MoistureStepInnerProps) {
   const { fields, append, remove } = useFieldArray({
     control: form.control,
     name: 'rooms',
@@ -126,12 +129,22 @@ function MoistureStepInner({ form, expandedId, setExpandedId }: MoistureStepInne
         onToggle={handleToggle}
         onDelete={handleDelete}
         isComplete={isComplete}
-        renderContent={(_id, index) => (
-          <RoomForm
-            index={index}
-            control={form.control}
-            register={form.register}
-          />
+        renderContent={(roomId, index) => (
+          <div className="space-y-4">
+            <RoomForm
+              index={index}
+              control={form.control}
+              register={form.register}
+            />
+            <div className="space-y-2 border-t border-stone-700 pt-4">
+              <h4 className="text-sm font-medium text-stone-300">Fenykepek</h4>
+              <PhotoGallery
+                inspectionId={inspectionId}
+                stepKey="moisture"
+                roomId={roomId}
+              />
+            </div>
+          </div>
         )}
       />
     </div>

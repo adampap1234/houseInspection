@@ -1,5 +1,6 @@
 import { FormStepWrapper } from './FormStepWrapper.tsx'
 import { ChecklistField } from './ChecklistField.tsx'
+import { PhotoGallery } from '../photo/PhotoGallery.tsx'
 import { electricalSchema, type ElectricalForm } from '../../schemas/electrical.ts'
 import type { ElectricalData } from '../../types/inspection.ts'
 
@@ -38,6 +39,12 @@ export function ElectricalStep({ inspectionId, defaultValues }: ElectricalStepPr
                 control={form.control}
               />
             ))}
+          </div>
+
+          {/* Photo gallery */}
+          <div className="space-y-2 border-t border-stone-700 pt-4">
+            <h3 className="text-sm font-medium text-stone-300">Fenykepek</h3>
+            <PhotoGallery inspectionId={inspectionId} stepKey="electrical" />
           </div>
         </div>
       )}

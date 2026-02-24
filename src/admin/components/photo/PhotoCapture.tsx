@@ -6,17 +6,19 @@ interface PhotoCaptureProps {
   inspectionId: string
   stepKey: string
   roomId?: string
+  defaultPhotoType?: 'visible' | 'thermal' | 'other'
 }
 
 export function PhotoCapture({
   inspectionId,
   stepKey,
   roomId,
+  defaultPhotoType = 'visible',
 }: PhotoCaptureProps) {
   const cameraInputRef = useRef<HTMLInputElement>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [photoType, setPhotoType] = useState<'visible' | 'thermal' | 'other'>(
-    'visible'
+    defaultPhotoType
   )
 
   const { handleCapture, isCompressing } = usePhotoCapture(

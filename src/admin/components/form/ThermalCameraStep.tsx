@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { FormStepWrapper } from './FormStepWrapper.tsx'
 import { ChecklistField } from './ChecklistField.tsx'
+import { PhotoGallery } from '../photo/PhotoGallery.tsx'
 import { thermalSchema, type ThermalForm } from '../../schemas/thermal.ts'
 import type { ThermalData } from '../../types/inspection.ts'
 
@@ -35,16 +36,17 @@ export function ThermalCameraStep({ inspectionId, defaultValues }: ThermalCamera
       schema={thermalSchema}
       defaultValues={defaultValues}
     >
-      {(form) => <ThermalCameraStepInner form={form} />}
+      {(form) => <ThermalCameraStepInner form={form} inspectionId={inspectionId} />}
     </FormStepWrapper>
   )
 }
 
 interface ThermalCameraStepInnerProps {
   form: ReturnType<typeof import('react-hook-form').useForm<ThermalForm>>
+  inspectionId: string
 }
 
-function ThermalCameraStepInner({ form }: ThermalCameraStepInnerProps) {
+function ThermalCameraStepInner({ form, inspectionId }: ThermalCameraStepInnerProps) {
   const exteriorTemp = form.watch('exteriorTemp')
   const interiorTemp = form.watch('interiorTemp')
 
@@ -130,11 +132,14 @@ function ThermalCameraStepInner({ form }: ThermalCameraStepInnerProps) {
         ))}
       </div>
 
-      {/* Note about photo attachment */}
-      <div className="rounded-lg border border-stone-700 bg-stone-800/30 px-4 py-3">
-        <p className="text-xs text-stone-500">
-          Hokamera kepek csatolasa a foto kezeles lepesben lesz elerheto.
-        </p>
+      {/* Photo gallery - defaults to thermal photo type */}
+      <div className="space-y-2 border-t border-stone-700 pt-4">
+        <h3 className="text-sm font-medium text-stone-300">Fenykepek</h3>
+        <PhotoGallery
+          inspectionId={inspectionId}
+          stepKey="thermal"
+          defaultPhotoType="thermal"
+        />
       </div>
     </div>
   )
