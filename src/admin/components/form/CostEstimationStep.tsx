@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { db } from '../../lib/db.ts'
 import { getDefaultCostItems, getCostCategories } from '../../data/cost-items.ts'
 import { useInspectionStore } from '../../stores/inspectionStore.ts'
@@ -46,6 +47,7 @@ export function CostEstimationStep({
 
   const currentStep = useInspectionStore((s) => s.currentStep)
   const setStep = useInspectionStore((s) => s.setStep)
+  const navigate = useNavigate()
   const categories = getCostCategories()
 
   // Sync state when defaultValues changes (e.g., loading from Dexie)
@@ -95,9 +97,8 @@ export function CostEstimationStep({
 
   const handleNext = async () => {
     await saveItems(items)
-    const nextStep = currentStep + 1
-    await db.inspections.update(inspectionId, { currentStep: nextStep })
-    setStep(nextStep)
+    // Last step: navigate to summary page instead of incrementing step
+    navigate(`/admin/inspection/${inspectionId}/summary`)
   }
 
   const handlePrevious = async () => {

@@ -9,6 +9,7 @@ import App from './App.tsx'
 const LoginPage = lazy(() => import('./admin/pages/LoginPage.tsx').then(m => ({ default: m.LoginPage })))
 const DashboardPage = lazy(() => import('./admin/pages/DashboardPage.tsx').then(m => ({ default: m.DashboardPage })))
 const InspectionPage = lazy(() => import('./admin/pages/InspectionPage.tsx').then(m => ({ default: m.InspectionPage })))
+const InspectionSummary = lazy(() => import('./admin/components/summary/InspectionSummary.tsx').then(m => ({ default: m.InspectionSummary })))
 
 const AdminFallback = () => (
   <div className="flex min-h-screen items-center justify-center bg-stone-900 text-stone-200">
@@ -46,6 +47,14 @@ createRoot(document.getElementById('root')!).render(
             element={
               <Suspense fallback={<AdminFallback />}>
                 <InspectionPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/inspection/:id/summary"
+            element={
+              <Suspense fallback={<AdminFallback />}>
+                <InspectionSummary />
               </Suspense>
             }
           />
