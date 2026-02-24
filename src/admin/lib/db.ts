@@ -13,6 +13,10 @@ export class InspectionDB extends Dexie {
       inspections: 'id, createdAt, syncStatus',
       photos: 'id, inspectionId, stepKey, syncStatus',
     })
+    this.version(2).stores({
+      inspections: 'id, createdAt, syncStatus',
+      photos: 'id, inspectionId, stepKey, [inspectionId+stepKey], syncStatus',
+    })
   }
 }
 
