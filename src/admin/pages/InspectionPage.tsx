@@ -14,6 +14,8 @@ import { WindowsDoorsStep } from '../components/form/WindowsDoorsStep.tsx'
 import { ElectricalStep } from '../components/form/ElectricalStep.tsx'
 import { HvacStep } from '../components/form/HvacStep.tsx'
 import { LaserMeasurementsStep } from '../components/form/LaserMeasurementsStep.tsx'
+import { RiskAssessmentStep } from '../components/form/RiskAssessmentStep.tsx'
+import { CostEstimationStep } from '../components/form/CostEstimationStep.tsx'
 import type { Inspection } from '../types/inspection.ts'
 
 function StepPlaceholder({ name }: { name: string }) {
@@ -48,9 +50,9 @@ function renderStep(step: number, inspection: Inspection) {
     case 8:
       return <LaserMeasurementsStep inspectionId={id} defaultValues={inspection.laser} />
     case 9:
-      return <StepPlaceholder name="Kockazat ertekeles" />
+      return <RiskAssessmentStep inspectionId={id} defaultValues={inspection.risks} />
     case 10:
-      return <StepPlaceholder name="Koltsegbecsles" />
+      return <CostEstimationStep inspectionId={id} defaultValues={inspection.costItems} />
     default:
       return <StepPlaceholder name="Ismeretlen lepes" />
   }
