@@ -168,3 +168,12 @@ Plans:
 - [ ] 08-07-PLAN.md -- Summary page with section review, risk overrides, and photo gallery
 - [ ] 08-08-PLAN.md -- PDF report generation with @react-pdf/renderer (all 8 report sections)
 - [ ] 08-09-PLAN.md -- Cloud sync, photo gallery integration in form steps, end-to-end verification
+
+### Phase 9: Marketing website UX/UI and conversion improvements
+
+**Goal:** [To be planned]
+**Depends on:** Phase 8
+**Plans:** 0 plans
+
+Plans:
+- [ ] TBD (run /gsd:plan-phase 9 to break down)

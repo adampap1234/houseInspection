@@ -42,10 +42,13 @@ export function FormStepWrapper<T extends FieldValues>({
 
   const { reset } = form
 
-  // Reset form when defaultValues change (e.g., when loading from Dexie)
+  // Reset form only when switching to a different inspection — NOT on auto-save.
+  // useLiveQuery produces a new object reference every time Dexie writes,
+  // which would reset the form (and collapse accordions, lose focus, etc.).
   useEffect(() => {
     reset(defaultValues)
-  }, [defaultValues, reset])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inspectionId])
 
   // Auto-save integration
   useAutoSave(inspectionId, stepKey, form.watch)

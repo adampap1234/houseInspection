@@ -101,6 +101,7 @@ Recent decisions affecting current work:
 
 - Phase 7 added: Redesign scroll sections with meaningful content stops (Hero, How it works, 4 service sections)
 - Phase 8 added: Admin inspection app with login, multi-step form (11 pages), photo upload, risk assessment, cost estimation, and PDF report generation for tablet/laptop use
+- Phase 9 added: Marketing website UX/UI and conversion improvements
 
 ### Pending Todos
 

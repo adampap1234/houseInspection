@@ -104,8 +104,8 @@ function ChecklistRow({ label, item }: { label: string; item: ChecklistItem }) {
       style={{
         flexDirection: 'row',
         alignItems: 'center',
-        paddingVertical: 3,
-        paddingHorizontal: 6,
+        paddingVertical: 5,
+        paddingHorizontal: 8,
         borderBottomWidth: 0.5,
         borderBottomColor: COLORS.borderLight,
       }}
@@ -128,8 +128,8 @@ function InlinePhotos({ sectionPhotos }: { sectionPhotos: PhotoWithBase64[] }) {
   if (sectionPhotos.length === 0) return null
 
   return (
-    <View style={{ marginTop: 6, marginBottom: 8 }}>
-      <Text style={[pdfStyles.label, { marginBottom: 4 }]}>Fenykepek:</Text>
+    <View style={{ marginTop: 8, marginBottom: 8 }}>
+      <Text style={[pdfStyles.label, { marginBottom: 6 }]}>FENYKEPEK</Text>
       <View style={pdfStyles.photoGrid}>
         {sectionPhotos.map((photo) => (
           <View key={photo.id} style={pdfStyles.photoGridItem} wrap={false}>
@@ -156,8 +156,16 @@ function MoistureSection({ inspection, photos }: { inspection: Inspection; photo
         <Text style={pdfStyles.body}>Nincs rogzitett meres.</Text>
       ) : (
         rooms.map((room) => (
-          <View key={room.id} style={{ marginBottom: 8 }}>
-            <Text style={[pdfStyles.label, { marginTop: 4 }]}>
+          <View key={room.id} style={{ marginBottom: 10 }}>
+            <Text
+              style={{
+                fontSize: 9,
+                fontWeight: 700,
+                color: COLORS.primary,
+                marginTop: 4,
+                marginBottom: 4,
+              }}
+            >
               {room.roomName} ({room.wallType === 'exterior' ? 'Kulso fal' : 'Belso fal'})
             </Text>
             <View style={pdfStyles.table}>
@@ -303,7 +311,7 @@ function ThermalSection({
       </View>
 
       {/* Checklist items */}
-      <View style={{ marginTop: 6 }}>
+      <View style={{ marginTop: 8 }}>
         <View style={pdfStyles.tableHeader}>
           <Text style={[pdfStyles.tableHeaderCell, { flex: 1 }]}>Elem</Text>
           <Text style={[pdfStyles.tableHeaderCell, { width: 80 }]}>Allapot</Text>
@@ -336,7 +344,7 @@ export function FindingsPage({ inspection, photos }: FindingsPageProps) {
         <Text style={pdfStyles.headerTitle}>Reszletes megallapitasok</Text>
       </View>
 
-      <View style={{ marginTop: 20 }}>
+      <View style={{ marginTop: 24 }}>
         <Text style={pdfStyles.h2}>Reszletes megallapitasok</Text>
 
         {SECTIONS.map((section) => {

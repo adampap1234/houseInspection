@@ -16,12 +16,22 @@ export function DisclaimerPage({ projectData }: DisclaimerPageProps) {
         <Text style={pdfStyles.headerTitle}>Nyilatkozat</Text>
       </View>
 
-      <View style={{ marginTop: 20 }}>
+      <View style={{ marginTop: 24 }}>
         <Text style={pdfStyles.h2}>Nyilatkozat es felelosseg korlatozas</Text>
 
         <View style={pdfStyles.accentBar} />
 
-        <View style={{ marginTop: 8, gap: 10 }}>
+        <View
+          style={{
+            marginTop: 10,
+            gap: 12,
+            padding: 16,
+            backgroundColor: COLORS.backgroundAlt,
+            borderRadius: 4,
+            borderWidth: 1,
+            borderColor: COLORS.borderLight,
+          }}
+        >
           <Text style={pdfStyles.body}>
             Ez a jelentes a vizsgalat idopontjaban tapasztalt allapotokat
             rogziti. A jelentes a szemmel lathato es a rendelkezesre allo
@@ -61,14 +71,14 @@ export function DisclaimerPage({ projectData }: DisclaimerPageProps) {
         <View style={pdfStyles.divider} />
 
         {/* Signature area */}
-        <View style={{ marginTop: 40 }}>
+        <View style={{ marginTop: 36 }}>
           <Text style={pdfStyles.h3}>Alairas</Text>
 
           <View
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-              marginTop: 30,
+              marginTop: 40,
             }}
           >
             {/* Inspector signature */}
@@ -77,12 +87,12 @@ export function DisclaimerPage({ projectData }: DisclaimerPageProps) {
                 style={{
                   borderBottomWidth: 1,
                   borderBottomColor: COLORS.text,
-                  marginBottom: 6,
-                  height: 40,
+                  marginBottom: 8,
+                  height: 44,
                 }}
               />
-              <Text style={pdfStyles.label}>Vizsgalo alairasa</Text>
-              <Text style={pdfStyles.body}>
+              <Text style={pdfStyles.label}>VIZSGALO ALAIRASA</Text>
+              <Text style={[pdfStyles.body, { marginTop: 2 }]}>
                 {projectData.inspectorName || ''}
               </Text>
             </View>
@@ -93,12 +103,12 @@ export function DisclaimerPage({ projectData }: DisclaimerPageProps) {
                 style={{
                   borderBottomWidth: 1,
                   borderBottomColor: COLORS.text,
-                  marginBottom: 6,
-                  height: 40,
+                  marginBottom: 8,
+                  height: 44,
                 }}
               />
-              <Text style={pdfStyles.label}>Hely, datum</Text>
-              <Text style={pdfStyles.body}>
+              <Text style={pdfStyles.label}>HELY, DATUM</Text>
+              <Text style={[pdfStyles.body, { marginTop: 2 }]}>
                 {projectData.address
                   ? `${projectData.address}, `
                   : ''}

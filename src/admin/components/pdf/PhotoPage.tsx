@@ -48,11 +48,11 @@ export function PhotoPage({ photos }: PhotoPageProps) {
         <Text style={pdfStyles.headerTitle}>Fenykep dokumentacio</Text>
       </View>
 
-      <View style={{ marginTop: 20 }}>
+      <View style={{ marginTop: 24 }}>
         <Text style={pdfStyles.h2}>Tovabbi fenykepek</Text>
 
         {Array.from(grouped.entries()).map(([stepKey, stepPhotos]) => (
-          <View key={stepKey} style={{ marginBottom: 12 }}>
+          <View key={stepKey} style={{ marginBottom: 14 }}>
             <Text style={pdfStyles.h3}>
               {STEP_LABELS[stepKey] || stepKey}
             </Text>

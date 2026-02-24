@@ -19,7 +19,7 @@ export function MeasurementsPage({ inspection }: MeasurementsPageProps) {
         <Text style={pdfStyles.headerTitle}>Meresek</Text>
       </View>
 
-      <View style={{ marginTop: 20 }}>
+      <View style={{ marginTop: 24 }}>
         <Text style={pdfStyles.h2}>Meresi eredmenyek</Text>
 
         {/* Laser measurements */}
@@ -105,7 +105,7 @@ export function MeasurementsPage({ inspection }: MeasurementsPageProps) {
         <View style={pdfStyles.table}>
           <View style={pdfStyles.tableHeader}>
             <Text style={[pdfStyles.tableHeaderCell, { flex: 1 }]}>
-              Paramerer
+              Parameter
             </Text>
             <Text
               style={[

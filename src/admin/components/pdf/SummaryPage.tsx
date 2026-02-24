@@ -9,6 +9,51 @@ interface SummaryPageProps {
   photoCount: number
 }
 
+function StatBox({
+  value,
+  label,
+  color,
+}: {
+  value: number
+  label: string
+  color: string
+}) {
+  return (
+    <View
+      style={{
+        width: '30%',
+        alignItems: 'center',
+        paddingVertical: 12,
+        borderRadius: 4,
+        borderWidth: 1,
+        borderColor: COLORS.borderLight,
+        backgroundColor: COLORS.backgroundAlt,
+      }}
+    >
+      <Text
+        style={{
+          fontSize: 24,
+          fontWeight: 700,
+          color,
+          marginBottom: 4,
+        }}
+      >
+        {value}
+      </Text>
+      <Text
+        style={{
+          fontSize: 7.5,
+          fontWeight: 700,
+          color: COLORS.textLight,
+          letterSpacing: 0.5,
+        }}
+      >
+        {label}
+      </Text>
+    </View>
+  )
+}
+
 export function SummaryPage({ inspection, risks, photoCount }: SummaryPageProps) {
   const { projectData, moisture, laser } = inspection
 
@@ -22,32 +67,38 @@ export function SummaryPage({ inspection, risks, photoCount }: SummaryPageProps)
   return (
     <Page size="A4" style={pdfStyles.page}>
       {/* Header */}
-      <View style={pdfStyles.header}>
+      <View style={pdfStyles.header} fixed>
         <Text style={pdfStyles.headerCompany}>INSPECTA PRO</Text>
         <Text style={pdfStyles.headerTitle}>Osszefoglalo</Text>
       </View>
 
-      <View style={{ marginTop: 20 }}>
+      <View style={{ marginTop: 24 }}>
         <Text style={pdfStyles.h2}>Osszefoglalo</Text>
 
-        {/* Project overview */}
-        <View style={{ marginBottom: 12 }}>
-          <View style={{ flexDirection: 'row', marginBottom: 4 }}>
-            <Text style={[pdfStyles.label, { width: 100 }]}>Megbizo:</Text>
+        {/* Project overview — two-column layout */}
+        <View
+          style={{
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            marginBottom: 8,
+          }}
+        >
+          <View style={{ width: '50%', paddingRight: 12, marginBottom: 6 }}>
+            <Text style={pdfStyles.label}>MEGBIZO</Text>
             <Text style={pdfStyles.body}>{projectData.clientName || '-'}</Text>
           </View>
-          <View style={{ flexDirection: 'row', marginBottom: 4 }}>
-            <Text style={[pdfStyles.label, { width: 100 }]}>Cim:</Text>
+          <View style={{ width: '50%', paddingLeft: 12, marginBottom: 6 }}>
+            <Text style={pdfStyles.label}>CIM</Text>
             <Text style={pdfStyles.body}>{projectData.address || '-'}</Text>
           </View>
-          <View style={{ flexDirection: 'row', marginBottom: 4 }}>
-            <Text style={[pdfStyles.label, { width: 100 }]}>Datum:</Text>
+          <View style={{ width: '50%', paddingRight: 12, marginBottom: 6 }}>
+            <Text style={pdfStyles.label}>DATUM</Text>
             <Text style={pdfStyles.body}>
               {projectData.date ? formatDate(projectData.date) : '-'}
             </Text>
           </View>
-          <View style={{ flexDirection: 'row', marginBottom: 4 }}>
-            <Text style={[pdfStyles.label, { width: 100 }]}>Vizsgalo:</Text>
+          <View style={{ width: '50%', paddingLeft: 12, marginBottom: 6 }}>
+            <Text style={pdfStyles.label}>VIZSGALO</Text>
             <Text style={pdfStyles.body}>
               {projectData.inspectorName || '-'}
             </Text>
@@ -62,86 +113,22 @@ export function SummaryPage({ inspection, risks, photoCount }: SummaryPageProps)
         <View
           style={{
             flexDirection: 'row',
-            justifyContent: 'space-around',
-            marginVertical: 12,
-            paddingVertical: 10,
-            backgroundColor: COLORS.backgroundAlt,
-            borderRadius: 6,
+            justifyContent: 'space-between',
+            marginVertical: 10,
+            gap: 10,
           }}
         >
-          {/* Green */}
-          <View style={{ alignItems: 'center' }}>
-            <View
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: 20,
-                backgroundColor: COLORS.riskGreen,
-                justifyContent: 'center',
-                alignItems: 'center',
-                marginBottom: 4,
-              }}
-            >
-              <Text
-                style={{ fontSize: 16, fontWeight: 700, color: COLORS.white }}
-              >
-                {rendben}
-              </Text>
-            </View>
-            <Text style={pdfStyles.bodySmall}>Rendben</Text>
-          </View>
-
-          {/* Yellow */}
-          <View style={{ alignItems: 'center' }}>
-            <View
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: 20,
-                backgroundColor: COLORS.riskYellow,
-                justifyContent: 'center',
-                alignItems: 'center',
-                marginBottom: 4,
-              }}
-            >
-              <Text
-                style={{ fontSize: 16, fontWeight: 700, color: COLORS.white }}
-              >
-                {figyelendo}
-              </Text>
-            </View>
-            <Text style={pdfStyles.bodySmall}>Figyelendo</Text>
-          </View>
-
-          {/* Red */}
-          <View style={{ alignItems: 'center' }}>
-            <View
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: 20,
-                backgroundColor: COLORS.riskRed,
-                justifyContent: 'center',
-                alignItems: 'center',
-                marginBottom: 4,
-              }}
-            >
-              <Text
-                style={{ fontSize: 16, fontWeight: 700, color: COLORS.white }}
-              >
-                {kockazatos}
-              </Text>
-            </View>
-            <Text style={pdfStyles.bodySmall}>Kockazatos</Text>
-          </View>
+          <StatBox value={rendben} label="RENDBEN" color={COLORS.riskGreen} />
+          <StatBox value={figyelendo} label="FIGYELENDO" color={COLORS.riskYellow} />
+          <StatBox value={kockazatos} label="KOCKAZATOS" color={COLORS.riskRed} />
         </View>
 
         <View style={pdfStyles.divider} />
 
-        {/* Quick stats */}
+        {/* Quick stats table */}
         <Text style={pdfStyles.h3}>Vizsgalat statisztikak</Text>
 
-        <View style={{ marginTop: 6 }}>
+        <View style={pdfStyles.table}>
           <View style={pdfStyles.tableRow}>
             <Text style={[pdfStyles.tableCell, { flex: 1 }]}>
               Vizsgalt szobak szama
@@ -200,28 +187,41 @@ export function SummaryPage({ inspection, risks, photoCount }: SummaryPageProps)
         {kockazatos > 0 && (
           <View style={{ marginTop: 14 }}>
             <Text style={pdfStyles.h3}>Kiemelt kockazatok</Text>
-            {risks
-              .filter((r) => r.level === 'kockazatos')
-              .map((risk) => (
-                <View
-                  key={risk.id}
-                  style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    marginBottom: 4,
-                    paddingVertical: 3,
-                  }}
-                >
+            <View
+              style={{
+                borderWidth: 1,
+                borderColor: COLORS.riskRed,
+                borderRadius: 4,
+                overflow: 'hidden',
+                marginTop: 4,
+              }}
+            >
+              {risks
+                .filter((r) => r.level === 'kockazatos')
+                .map((risk, i) => (
                   <View
-                    style={[pdfStyles.riskBadge, pdfStyles.riskRed, { marginRight: 8 }]}
+                    key={risk.id}
+                    style={{
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      paddingVertical: 6,
+                      paddingHorizontal: 8,
+                      backgroundColor: i % 2 === 0 ? COLORS.riskRedBg : COLORS.background,
+                      borderBottomWidth: 0.5,
+                      borderBottomColor: COLORS.borderLight,
+                    }}
                   >
-                    <Text>Kockazatos</Text>
+                    <View
+                      style={[pdfStyles.riskBadge, pdfStyles.riskRed, { marginRight: 10 }]}
+                    >
+                      <Text>Kockazatos</Text>
+                    </View>
+                    <Text style={[pdfStyles.body, { flex: 1 }]}>
+                      {risk.category}: {risk.reason}
+                    </Text>
                   </View>
-                  <Text style={[pdfStyles.body, { flex: 1 }]}>
-                    {risk.category}: {risk.reason}
-                  </Text>
-                </View>
-              ))}
+                ))}
+            </View>
           </View>
         )}
       </View>

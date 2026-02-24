@@ -31,7 +31,7 @@ export function CostEstimatePage({ costItems }: CostEstimatePageProps) {
         <Text style={pdfStyles.headerTitle}>Koltsegbecsles</Text>
       </View>
 
-      <View style={{ marginTop: 20 }}>
+      <View style={{ marginTop: 24 }}>
         <Text style={pdfStyles.h2}>Becsult javitasi koltsegek</Text>
 
         {selectedItems.length === 0 ? (
@@ -53,7 +53,7 @@ export function CostEstimatePage({ costItems }: CostEstimatePageProps) {
                 )
 
                 return (
-                  <View key={category} style={{ marginBottom: 10 }}>
+                  <View key={category} style={{ marginBottom: 12 }}>
                     <Text style={pdfStyles.h3}>{category}</Text>
 
                     {/* Items */}
@@ -79,9 +79,9 @@ export function CostEstimatePage({ costItems }: CostEstimatePageProps) {
                       style={{
                         flexDirection: 'row',
                         justifyContent: 'flex-end',
-                        paddingVertical: 4,
-                        paddingHorizontal: 6,
-                        backgroundColor: COLORS.backgroundAlt,
+                        paddingVertical: 5,
+                        paddingHorizontal: 8,
+                        backgroundColor: COLORS.backgroundAccent,
                         borderBottomWidth: 1,
                         borderBottomColor: COLORS.border,
                       }}
@@ -119,9 +119,9 @@ export function CostEstimatePage({ costItems }: CostEstimatePageProps) {
                 flexDirection: 'row',
                 justifyContent: 'flex-end',
                 alignItems: 'center',
-                marginTop: 12,
-                paddingVertical: 8,
-                paddingHorizontal: 6,
+                marginTop: 14,
+                paddingVertical: 10,
+                paddingHorizontal: 8,
                 backgroundColor: COLORS.primary,
                 borderRadius: 4,
               }}
@@ -150,9 +150,9 @@ export function CostEstimatePage({ costItems }: CostEstimatePageProps) {
         )}
 
         {/* Disclaimer */}
-        <View style={{ marginTop: 16 }}>
+        <View style={{ marginTop: 18 }}>
           <View style={pdfStyles.divider} />
-          <Text style={[pdfStyles.bodySmall, { marginTop: 6 }]}>
+          <Text style={[pdfStyles.bodySmall, { marginTop: 8 }]}>
             A koltsegbecsles tajkoztato jellegu. A felsorolt osszegek
             iranyarak, amelyek a munka terjedelmeto1, a helyi araktol es az
             anyagvalasztastol fuggoen valtozhatnak. Valodi ajanlatot

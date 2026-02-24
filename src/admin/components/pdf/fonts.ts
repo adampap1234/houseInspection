@@ -3,22 +3,24 @@ import { Font } from '@react-pdf/renderer'
 /**
  * Register Inter font for @react-pdf/renderer.
  *
- * Uses Google Fonts CDN for TTF files since @fontsource only ships WOFF,
- * which react-pdf does not support. Inter latin-ext subset covers all
- * Hungarian diacritical characters (a, e, i, o, o, u, u, u).
+ * Uses local TTF files (from Inter v4.1 release) because @react-pdf/renderer
+ * cannot embed WOFF2 fonts — the glyph encoder throws a DataView RangeError.
+ * Full (non-subset) TTF includes all Hungarian diacritical characters.
  *
  * Must be called once before any PDF rendering.
  */
+const base = import.meta.env.BASE_URL ?? '/'
+
 Font.register({
   family: 'Inter',
   fonts: [
     {
-      src: 'https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hiA.woff2',
+      src: `${base}fonts/Inter-Regular.ttf`,
       fontWeight: 400,
       fontStyle: 'normal',
     },
     {
-      src: 'https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYAZ9hiA.woff2',
+      src: `${base}fonts/Inter-Bold.ttf`,
       fontWeight: 700,
       fontStyle: 'normal',
     },

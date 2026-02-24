@@ -32,9 +32,9 @@ function getBadgeStyle(level: RiskLevel) {
 function getRowBg(level: RiskLevel): string {
   switch (level) {
     case 'kockazatos':
-      return '#FEF2F2'
+      return COLORS.riskRedBg
     case 'figyelendo':
-      return '#FEFCE8'
+      return COLORS.riskYellowBg
     default:
       return COLORS.background
   }
@@ -53,58 +53,65 @@ export function RiskListPage({ risks }: RiskListPageProps) {
         <Text style={pdfStyles.headerTitle}>Kockazati lista</Text>
       </View>
 
-      <View style={{ marginTop: 20 }}>
+      <View style={{ marginTop: 24 }}>
         <Text style={pdfStyles.h2}>Kockazati ertekelesek</Text>
-        <Text style={[pdfStyles.bodySmall, { marginBottom: 8 }]}>
+        <Text style={[pdfStyles.bodySmall, { marginBottom: 10 }]}>
           Osszes kockazat: {risks.length} | Kockazatos:{' '}
           {risks.filter((r) => r.level === 'kockazatos').length} | Figyelendo:{' '}
           {risks.filter((r) => r.level === 'figyelendo').length} | Rendben:{' '}
           {risks.filter((r) => r.level === 'rendben').length}
         </Text>
 
-        {/* Table header */}
-        <View style={pdfStyles.tableHeader}>
-          <Text style={[pdfStyles.tableHeaderCell, { width: 120 }]}>
-            Kategoria
-          </Text>
-          <Text style={[pdfStyles.tableHeaderCell, { width: 80 }]}>Szint</Text>
-          <Text style={[pdfStyles.tableHeaderCell, { flex: 1 }]}>Ok</Text>
-          <Text style={[pdfStyles.tableHeaderCell, { width: 60, textAlign: 'center' }]}>
-            Modositott
-          </Text>
-        </View>
-
-        {/* Table rows */}
-        {sorted.map((risk, index) => (
-          <View
-            key={risk.id}
-            style={[
-              index % 2 === 0 ? pdfStyles.tableRow : pdfStyles.tableRowAlt,
-              { backgroundColor: getRowBg(risk.level) },
-            ]}
-            wrap={false}
-          >
-            <Text style={[pdfStyles.tableCell, { width: 120 }]}>
-              {risk.category}
+        {/* Table */}
+        <View style={pdfStyles.table}>
+          {/* Table header */}
+          <View style={pdfStyles.tableHeader}>
+            <Text style={[pdfStyles.tableHeaderCell, { width: 120 }]}>
+              Kategoria
             </Text>
-            <View style={{ width: 80 }}>
-              <View style={[pdfStyles.riskBadge, getBadgeStyle(risk.level)]}>
-                <Text>{LEVEL_LABELS[risk.level]}</Text>
-              </View>
-            </View>
-            <Text style={[pdfStyles.tableCell, { flex: 1 }]}>
-              {risk.reason}
-            </Text>
-            <Text
-              style={[
-                pdfStyles.tableCell,
-                { width: 60, textAlign: 'center' },
-              ]}
-            >
-              {risk.manuallyAdjusted ? 'Igen' : '-'}
+            <Text style={[pdfStyles.tableHeaderCell, { width: 80 }]}>Szint</Text>
+            <Text style={[pdfStyles.tableHeaderCell, { flex: 1 }]}>Ok</Text>
+            <Text style={[pdfStyles.tableHeaderCell, { width: 60, textAlign: 'center' }]}>
+              Modositott
             </Text>
           </View>
-        ))}
+
+          {/* Table rows */}
+          {sorted.map((risk) => (
+            <View
+              key={risk.id}
+              style={{
+                flexDirection: 'row',
+                paddingVertical: 5,
+                paddingHorizontal: 8,
+                backgroundColor: getRowBg(risk.level),
+                borderBottomWidth: 0.5,
+                borderBottomColor: COLORS.borderLight,
+              }}
+              wrap={false}
+            >
+              <Text style={[pdfStyles.tableCell, { width: 120 }]}>
+                {risk.category}
+              </Text>
+              <View style={{ width: 80 }}>
+                <View style={[pdfStyles.riskBadge, getBadgeStyle(risk.level)]}>
+                  <Text>{LEVEL_LABELS[risk.level]}</Text>
+                </View>
+              </View>
+              <Text style={[pdfStyles.tableCell, { flex: 1 }]}>
+                {risk.reason}
+              </Text>
+              <Text
+                style={[
+                  pdfStyles.tableCell,
+                  { width: 60, textAlign: 'center' },
+                ]}
+              >
+                {risk.manuallyAdjusted ? 'Igen' : '-'}
+              </Text>
+            </View>
+          ))}
+        </View>
       </View>
 
       {/* Footer */}
