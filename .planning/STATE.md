@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-23)
 
 **Core value:** The 3D scroll-driven house walkthrough must be breathtaking -- it's the first impression, the differentiator, and the reason people remember the site.
-**Current focus:** Phase 8 in progress -- Admin inspection app (Summary page done)
+**Current focus:** Phase 8 in progress -- Admin inspection app (PDF report generation done)
 
 ## Current Position
 
 Phase: 8 (Admin Inspection App)
-Plan: 7 of 9 in current phase
-Status: Plan 08-07 complete
-Last activity: 2026-02-24 -- Plan 08-07 complete: Inspection summary page with risk overrides
+Plan: 8 of 9 in current phase
+Status: Plan 08-08 complete
+Last activity: 2026-02-24 -- Plan 08-08 complete: PDF report generation with 8 sections, preview, and download
 
-Progress: [███████████████.....] 78%
+Progress: [████████████████████] 89%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 17
-- Average duration: 5 min
-- Total execution time: ~91 min
+- Total plans completed: 18
+- Average duration: 6 min
+- Total execution time: ~101 min
 
 **By Phase:**
 
@@ -30,11 +30,11 @@ Progress: [███████████████.....] 78%
 | 1. Foundation | 4/4 | ~20 min | ~5 min |
 | 2. Static 3D Scene | 3/3 | ~11 min | ~4 min |
 | 7. Scroll Sections Redesign | 3/3 | ~9 min | ~3 min |
-| 8. Admin Inspection App | 7/9 | ~51 min | ~7 min |
+| 8. Admin Inspection App | 8/9 | ~61 min | ~8 min |
 
 **Recent Trend:**
-- Last 5 plans: 08-03 (10m), 08-04 (11m), 08-05 (~7m), 08-06 (7m), 08-07 (9m)
-- Trend: Stable (~7-10 min per plan)
+- Last 5 plans: 08-04 (11m), 08-05 (~7m), 08-06 (7m), 08-07 (9m), 08-08 (10m)
+- Trend: Stable (~7-11 min per plan)
 
 *Updated after each plan completion*
 
@@ -89,6 +89,9 @@ Recent decisions affecting current work:
 - [Phase 08]: Cost ranges shown in "ezer Ft" with space separator (Hungarian convention)
 - [Phase 08]: Summary as separate route (/admin/inspection/:id/summary) rather than step 11 in wizard
 - [Phase 08]: SectionSummaryCard collapsed by default with border color indicating worst risk level
+- [Phase 08]: Google Fonts CDN WOFF2 for Inter font in react-pdf (local @fontsource only has WOFF)
+- [Phase 08]: Max 4 inline photos per section in PDF FindingsPage; overflow to separate PhotoPage
+- [Phase 08]: ReportPreviewPage lazy-loaded to isolate ~1.6MB react-pdf bundle
 
 ### Roadmap Evolution
 
@@ -111,5 +114,5 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-02-24
-Stopped at: Completed 08-07-PLAN.md -- Inspection summary page with section cards, risk overrides, photo grid
+Stopped at: Completed 08-08-PLAN.md -- PDF report generation with 8 sections, preview, and download
 Resume file: None
