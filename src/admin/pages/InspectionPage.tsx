@@ -5,7 +5,12 @@ import { AdminLayout } from '../components/layout/AdminLayout.tsx'
 import { StepperBar } from '../components/layout/StepperBar.tsx'
 import { db } from '../lib/db.ts'
 import { useInspectionStore } from '../stores/inspectionStore.ts'
+import { ProjectDataStep } from '../components/form/ProjectDataStep.tsx'
+import { ExteriorStep } from '../components/form/ExteriorStep.tsx'
+import { WallStructureStep } from '../components/form/WallStructureStep.tsx'
 import { MoistureStep } from '../components/form/MoistureStep.tsx'
+import { ThermalCameraStep } from '../components/form/ThermalCameraStep.tsx'
+import { WindowsDoorsStep } from '../components/form/WindowsDoorsStep.tsx'
 import { ElectricalStep } from '../components/form/ElectricalStep.tsx'
 import { HvacStep } from '../components/form/HvacStep.tsx'
 import { LaserMeasurementsStep } from '../components/form/LaserMeasurementsStep.tsx'
@@ -25,17 +30,17 @@ function renderStep(step: number, inspection: Inspection) {
 
   switch (step) {
     case 0:
-      return <StepPlaceholder name="Projekt adatok" />
+      return <ProjectDataStep inspectionId={id} defaultValues={inspection.projectData} />
     case 1:
-      return <StepPlaceholder name="Kulso allapot" />
+      return <ExteriorStep inspectionId={id} defaultValues={inspection.exterior} />
     case 2:
-      return <StepPlaceholder name="Fal/szerkezet" />
+      return <WallStructureStep inspectionId={id} defaultValues={inspection.wallStructure} />
     case 3:
       return <MoistureStep inspectionId={id} defaultValues={inspection.moisture} />
     case 4:
-      return <StepPlaceholder name="Hokamera vizsgalat" />
+      return <ThermalCameraStep inspectionId={id} defaultValues={inspection.thermal} />
     case 5:
-      return <StepPlaceholder name="Nyilaszarok" />
+      return <WindowsDoorsStep inspectionId={id} defaultValues={inspection.windowsDoors} />
     case 6:
       return <ElectricalStep inspectionId={id} defaultValues={inspection.electrical} />
     case 7:
