@@ -8,6 +8,7 @@ import App from './App.tsx'
 // Lazy-load admin routes so marketing site never loads admin code
 const LoginPage = lazy(() => import('./admin/pages/LoginPage.tsx').then(m => ({ default: m.LoginPage })))
 const DashboardPage = lazy(() => import('./admin/pages/DashboardPage.tsx').then(m => ({ default: m.DashboardPage })))
+const InspectionPage = lazy(() => import('./admin/pages/InspectionPage.tsx').then(m => ({ default: m.InspectionPage })))
 
 const AdminFallback = () => (
   <div className="flex min-h-screen items-center justify-center bg-stone-900 text-stone-200">
@@ -44,9 +45,7 @@ createRoot(document.getElementById('root')!).render(
             path="/admin/inspection/:id"
             element={
               <Suspense fallback={<AdminFallback />}>
-                <div className="flex min-h-screen items-center justify-center bg-stone-900 text-stone-200">
-                  <p>Inspekcio urlapvarazsl - hamarosan</p>
-                </div>
+                <InspectionPage />
               </Suspense>
             }
           />
